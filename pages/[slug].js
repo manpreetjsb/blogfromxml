@@ -14,7 +14,9 @@ const Article = ({ data }) => {
             <div className="text-center">
               <div className="flex gap-3">
                 <span className="inline-block mt-5 text-xs font-medium tracking-wider uppercase  text-purple-600">
-                  {data.category}
+                  {typeof data.category === typeof []
+                    ? data.category.join(", ")
+                    : data.category}
                 </span>
               </div>
             </div>
@@ -69,7 +71,7 @@ const Article = ({ data }) => {
                 </div>
                 <div>
                   <p className="text-gray-800 dark:text-gray-400">
-                    {data["dc:creator"]}npm i html-to-react
+                    {data["dc:creator"]}
                   </p>
                   <div className="flex items-center space-x-2 text-sm">
                     <time
@@ -173,11 +175,8 @@ const Article = ({ data }) => {
                 <div>
                   <div className="mb-3">
                     <h4 className="text-lg font-medium text-gray-800 dark:text-gray-300">
-                      About {data["dc:creator"]}
+                      {data["dc:creator"]}
                     </h4>
-                  </div>
-                  <div>
-                    <p>some text upon writer.</p>
                   </div>
                 </div>
               </div>
